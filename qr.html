@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QR-кодҳои мизҳо — QR MENU</title>
+<meta name="theme-color" content="#15100C">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#221A14"/>
+        <g stroke="#E85D2D" stroke-width="2.4" fill="none">
+          <rect x="9" y="9" width="16" height="16" rx="3.4"/>
+          <rect x="39" y="9" width="16" height="16" rx="3.4"/>
+          <rect x="9" y="39" width="16" height="16" rx="3.4"/>
+        </g>
+        <rect x="14.5" y="14.5" width="7" height="7" rx="1.6" fill="#E85D2D"/>
+        <rect x="44.5" y="14.5" width="7" height="7" rx="1.6" fill="#E85D2D"/>
+        <rect x="14.5" y="44.5" width="7" height="7" rx="1.6" fill="#E85D2D"/>
+        <circle cx="47" cy="47" r="6.5" fill="#F5A623"/>
+      </svg>
+      <span class="brand-mark">QR <span style="color:var(--accent)">MENU</span></span>
+    </div>
+    <a class="btn btn-ghost" href="index.html" style="padding:9px 16px;font-size:0.86rem;">⬅️ Ба меню</a>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="eyebrow-title">QR-кодҳои мизҳо</h2>
+      <p>Ин QR-кодҳоро чоп кунед ва болои ҳар миз гузоред. Ҳар код рост ба менюи ҳамон миз мебарад.</p>
+    </div>
+
+    <div class="qr-toolbar">
+      <div class="field">
+        <label for="baseUrlInput">Домени сайт (Base URL)</label>
+        <input type="url" id="baseUrlInput" placeholder="https://your-domain.com">
+        <p class="field-hint">Баъд аз тағйир додан «Навсозии QR-кодҳо»-ро пахш кунед.</p>
+      </div>
+      <button class="btn btn-ghost" id="regenerateBtn">🔄 Навсозии QR-кодҳо</button>
+      <button class="btn btn-primary" id="printAllBtn">🖨 Чоп кардани ҳамаи QR-кодҳо</button>
+    </div>
+
+    <div class="qr-grid" id="qrGrid"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container"><p>QR MENU · Саҳифаи идоракунии QR-код</p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="js/qr.js"></script>
+</body>
+</html>

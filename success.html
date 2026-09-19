@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Фармоиш қабул шуд — QR MENU</title>
+<meta name="theme-color" content="#15100C">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="success-screen">
+  <div class="success-card">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>Фармоиш қабул шуд! 🎉</h1>
+
+    <div class="success-table">
+      <span class="table-badge" id="successTableBadge">—</span>
+    </div>
+
+    <div class="success-order-id">
+      <span>Рақами фармоиш</span>
+      <b id="successOrderId">#—</b>
+    </div>
+
+    <p>Лутфан интизор шавед. Фармоиши шумо омода шуда истодааст.</p>
+
+    <a class="btn btn-primary" id="backToMenuBtn" href="index.html">⬅️ Бозгашт ба меню</a>
+  </div>
+</div>
+
+<script type="module">
+  import { CONFIG } from './js/config.js';
+
+  const params = new URLSearchParams(window.location.search);
+  const table = parseInt(params.get('table'), 10);
+  const orderId = params.get('order');
+
+  const tableBadge = document.getElementById('successTableBadge');
+  const orderIdEl = document.getElementById('successOrderId');
+  const backBtn = document.getElementById('backToMenuBtn');
+
+  if (Number.isInteger(table) && table >= 1 && table <= CONFIG.tableCount) {
+    tableBadge.textContent = 'Мизи №' + table;
+    backBtn.href = 'index.html?table=' + table;
+  } else {
+    tableBadge.textContent = 'Миз номаълум';
+  }
+
+  orderIdEl.textContent = orderId ? '#' + orderId : '#—';
+
+  document.title = 'Фармоиш қабул шуд — ' + CONFIG.restaurantName;
+</script>
+</body>
+</html>
